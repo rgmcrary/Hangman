@@ -1,0 +1,40 @@
+body {
+    background-image: url("../images/newWave.jpg");
+}
+
+h1 {
+    text-align: center;
+    vertical-align: middle;
+    background: white;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.jumbotron {
+    background: white;
+    border-style: solid;
+}
+
+.gameSpace {
+    border-style: solid;
+    height: 950px;
+}
+
+.playArea {
+    background: white;
+    text-align: center;
+    height: 950px;
+}
+
+h2 {
+    text-align: center;
+    vertical-align: middle;
+}
+
+p {
+    font-family: Comic;
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+}
