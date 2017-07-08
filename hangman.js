@@ -1,54 +1,84 @@
 
 // Music Group array ################
-var musicGroups = ["devo", "banarama", "oingo boingo", "david bowie", "dead or alive", "the fixx", 'spandau ballet', "echo and the bunnymen", "the psychedelic furs", "tom tom club"];
+var musicGroups = ["devo", "bananarama", "oingo boingo", "david bowie", "dead or alive", "the fixx", 'spandau ballet', "echo and the bunnymen", "the psychedelic furs", "tom tom club"];
 var songs = ["whip it", "venus", "dead man's party", "let's dance", "brand new lover", "one thing leads to another", "poison arrow", "lips like sugar", "pretty in pink", "genius of love"];
+var pics = [];
+var randGroup
+var answer
+var remainingLetters;
+var guessesLeft;
+var guesses
+var artistSong
 
 
-
-
-
-
-document.onkeyup = function () {
-
+function gameStart() {
     // Random group selection ################
-    var randGroup = musicGroups[Math.floor(Math.random() * musicGroups.length)];
+    randGroup = musicGroups[Math.floor(Math.random() * musicGroups.length)];
     console.log(randGroup);
 
     // Answer array ################
-    var answer = [];
+    answer = [];
     for (var i = 0; i < randGroup.length; i++) {
         answer[i] = "_";
-        console.log(answer);
     }
-    var remainingLetters = randGroup.length;
-    var guessesLeft = 12;
+    remainingLetters = randGroup.length;
+    guessesLeft = 12;
 
+    // Guesses array ############
+    guesses = [];
+
+    //  Artist/Song Reveal ###########
+    artistSong = randGroup + " - " + songs[musicGroups.indexOf(randGroup)];
+
+    // Image Reveal ##############
+    // var pics = pics[musicGroups.indexOf(randGroup)];
+
+    document.getElementById("gameBoard").innerHTML = answer.join(" ");
+    document.getElementById("guessesLeft").innerHTML = guessesLeft;
+    document.getElementById("lettersGuessed").innerHTML = guesses;
+}
+
+
+
+
+function takeTurn(event) {
     // Game Loop ################
-    while (remainingLetters > 0 && guessesLeft > 0) {
-        document.write(answer.join(""));
-        var guess = document.onkeypress;
-        // if (guess === null) {
-        //     break;
-        // }
-        // else 
-        // if (guess.length !== 1) {
-        //     alert("Please enter only 1 letter.");
-        // }
-        // else {
+    var guess = event.key;
+    if (remainingLetters > 0 && guessesLeft > 0 && guesses.indexOf(guess) === -1) {
         for (var j = 0; j < randGroup.length; j++) {
             if (randGroup[j] === guess) {
                 answer[j] = guess;
                 remainingLetters--;
             }
-            else {
-                guessesLeft--;
-                // }
-            }
         }
+        if (answer.indexOf(guess) === -1) {
+            guessesLeft--;
+        }
+        guesses.push(guess);
+        document.getElementById("gameBoard").innerHTML = answer.join(" ").toUpperCase();
+        document.getElementById("guessesLeft").innerHTML = guessesLeft;
+        document.getElementById("lettersGuessed").innerHTML = guesses.join(" ").toUpperCase();
+    }
+    if (remainingLetters === 0 && guessesLeft > 0) {
+        document.getElementById("result").innerHTML = "YOU DID IT!!!";
+        document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
+        // document.getElementById("result").appendChild = pics;
+        // var playAgain = confirm("Do you want to play again?")
+        // if (answer) {
+        //     gameStart();
+        // }
+    }
+
+    if (remainingLetters > 0 && guessesLeft === 0) {
+        document.getElementById("result").innerHTML = "TOUGH LUCK.. BETTER LUCK NEXT TIME";
+        document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
+        // document.getElementById("result").appendChild = pics;
+        // var playAgain = confirm("Do you want to play again?")
+        // if (answer) {
+        //     gameStart();
+        // }
     }
 }
-
-
 
 
 

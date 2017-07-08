@@ -10,7 +10,7 @@
     <link href="assets/css/hangman.css" rel="stylesheet">
 </head>
 
-<body>
+<body onkeyup="takeTurn(event)" onload="gameStart()">
 
     <header>
         <div class="container">
@@ -25,13 +25,21 @@
     <div class="container gameSpace">
         <div class="row">
             <div class="col-md-12 playArea">
-                <h2>Let's Play a Game!!</h2>
-                <p>Press Any Key To Get Started!!</p>
+                <h2>Let's Play a Game !!</h2>
+                <p>Press Any Key To Get Started</p>
+                <div id="gameBoard"></div>
+                <div class="gameOutput">Guesses Left: <span id="guessesLeft"></span></div>
+                <div class="gameOutput">Your Guesses:</div>
+                <div class="gameOutput" id="lettersGuessed"></div>
             </div>
-
-            <!--<script type ="text/javascript">document.write(randBand)</script>-->
-
         </div>
+        <div class="row">
+            <div class="col-md-12 resultsArea">
+                <div id="result"></div>
+                <div class="gameOutput" id="reveal"></div>
+            </div>
+        </div>
+
     </div>
 
 
