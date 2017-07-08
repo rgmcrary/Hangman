@@ -15,6 +15,7 @@ h1 {
 .jumbotron {
     background: white;
     border-style: solid;
+    margin-top: 10px;
 }
 
 .gameSpace {

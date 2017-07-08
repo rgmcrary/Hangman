@@ -1,14 +1,14 @@
 
 // Music Group array ################
-var musicGroups = ["devo", "bananarama", "oingo boingo", "david bowie", "dead or alive", "the fixx", 'spandau ballet', "echo and the bunnymen", "the psychedelic furs", "tom tom club"];
-var songs = ["whip it", "venus", "dead man's party", "let's dance", "brand new lover", "one thing leads to another", "poison arrow", "lips like sugar", "pretty in pink", "genius of love"];
+var musicGroups = ["devo", "bananarama", "wham", "blondie", "abc", "animotion", 'berlin', "eurythmics", "inxs", "ministry"];
+var songs = ["whip it", "venus", "wake me up", "call me", "poison arrow", "obsession", "the metro", "here comes the rain", "suicide blond", "revenge"];
 var pics = [];
-var randGroup
-var answer
+var randGroup;
+var answer;
 var remainingLetters;
 var guessesLeft;
-var guesses
-var artistSong
+var guesses;
+var artistSong;
 
 
 function gameStart() {
