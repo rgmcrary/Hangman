@@ -1,8 +1,13 @@
 
-// Music Group array ################
+// Arrays ################
 var musicGroups = ["devo", "bananarama", "wham", "blondie", "abc", "animotion", 'berlin', "eurythmics", "inxs", "ministry"];
-var songs = ["whip it", "venus", "wake me up", "call me", "poison arrow", "obsession", "the metro", "here comes the rain", "suicide blond", "revenge"];
+var songs = ["whip it", "venus", "wake me up", "atomic", "poison arrow", "obsession", "the metro", "here comes the rain", "suicide blond", "revenge"];
 var pics = [];
+var audio = [];
+
+// Var Declarations  ############
+var wins = 0;
+var losses = 0;
 var randGroup;
 var answer;
 var remainingLetters;
@@ -11,8 +16,10 @@ var guesses;
 var artistSong;
 
 
+
 function gameStart() {
     // Random group selection ################
+    document.getElementById("restartButton").style.display = "none";
     randGroup = musicGroups[Math.floor(Math.random() * musicGroups.length)];
     console.log(randGroup);
 
@@ -36,8 +43,11 @@ function gameStart() {
     document.getElementById("gameBoard").innerHTML = answer.join(" ");
     document.getElementById("guessesLeft").innerHTML = guessesLeft;
     document.getElementById("lettersGuessed").innerHTML = guesses;
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("reveal").innerHTML = "";
+    document.getElementById("bandPic").innerHTML = "";
+    document.getElementById("result").appendChild = "";
 }
-
 
 
 
@@ -60,23 +70,23 @@ function takeTurn(event) {
         document.getElementById("lettersGuessed").innerHTML = guesses.join(" ").toUpperCase();
     }
     if (remainingLetters === 0 && guessesLeft > 0) {
+        wins++;
         document.getElementById("result").innerHTML = "YOU DID IT!!!";
         document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
-        // document.getElementById("result").appendChild = pics;
-        // var playAgain = confirm("Do you want to play again?")
-        // if (answer) {
-        //     gameStart();
-        // }
+        // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
+        // document.getElementById("result").appendChild = audio;
+        document.getElementById("restartButton").style.display = "block";
+        document.getElementById("wins").innerHTML = wins;
     }
 
     if (remainingLetters > 0 && guessesLeft === 0) {
-        document.getElementById("result").innerHTML = "TOUGH LUCK.. BETTER LUCK NEXT TIME";
+        losses++;
+        document.getElementById("result").innerHTML = "TOUGH LUCK...BETTER LUCK NEXT TIME";
         document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
-        // document.getElementById("result").appendChild = pics;
-        // var playAgain = confirm("Do you want to play again?")
-        // if (answer) {
-        //     gameStart();
-        // }
+        // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
+        // document.getElementById("result").appendChild = audio;
+       document.getElementById("restartButton").style.display = "block";
+          document.getElementById("losses").innerHTML = losses;
     }
 }
 
@@ -103,3 +113,7 @@ function takeTurn(event) {
 //         if wrong, play sound and end game 
 //         if correct, play sound and end game 
 //             play artist name and a song
+// Scoring
+    // # of wins 
+    // # of loses 
+
