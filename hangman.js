@@ -2,8 +2,8 @@
 // Arrays ################
 var musicGroups = ["devo", "bananarama", "wham", "blondie", "abc", "animotion", 'berlin', "eurythmics", "inxs", "ministry"];
 var songs = ["whip it", "venus", "wake me up", "atomic", "poison arrow", "obsession", "the metro", "here comes the rain", "suicide blond", "revenge"];
-var pics = [];
-var audio = [];
+var pics = ["devo.jpg", "bananarama.jpg", "wham.jpg", "blondie.jpg", "abc.jpg", "animotion.jpg", 'berlin.jpg', "eurythmics.jpg", "inxs.jpg", "ministry.jpg"];
+
 
 // Var Declarations  ############
 var wins = 0;
@@ -14,6 +14,7 @@ var remainingLetters;
 var guessesLeft;
 var guesses;
 var artistSong;
+
 
 
 
@@ -84,19 +85,17 @@ function takeTurn(event) {
 function updateDisplay(resultText, updateType) {
     document.getElementById("result").innerHTML = resultText;
     document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
-    // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
-    // document.getElementById("result").appendChild = audio;
+    document.getElementById("bandPic").innerHTML = "<img src = 'assets/images/" + pics[musicGroups.indexOf(randGroup)] + "'>";
     document.getElementById("restartButton").style.display = "block";
     if (updateType === "win") {
         document.getElementById("wins").innerHTML = wins;
+        var audio = new Audio("assets/audio/celebration.wav");
     } else {
         document.getElementById("losses").innerHTML = losses;
+        var audio = new Audio("assets/audio/boo.wav");
     }
+    audio.play();
 }
-
-
-
-
 
 
 

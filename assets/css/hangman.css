@@ -81,9 +81,29 @@ h2 {
     margin-bottom: 10px;    
 }
 
+#displayArea {
+    height: 300px;
+    padding-bottom: 10px;
+}
+
+.bandDisplay {
+    height: 100%;
+}
+
+
+#bandPic {
+    height: 100%;
+}
+
+
+img {
+    width: 200px;
+}
+
 #scoreBox {
     border: 3px solid red;
     text-align: left;
+    height: 70%;
     padding-bottom: 20px;
 }
 
