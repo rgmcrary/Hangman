@@ -1,9 +1,9 @@
 
 // Arrays ################
 var musicGroups = ["devo", "bananarama", "wham", "blondie", "abc", "animotion", 'berlin', "eurythmics", "inxs", "ministry"];
-var songs = ["whip it", "venus", "wake me up", "atomic", "poison arrow", "obsession", "the metro", "here comes the rain", "suicide blond", "revenge"];
+var songs = ["whip it", "venus", "wake me up", "heart of glass", "the look of love", "obsession", "the metro", "here comes the rain again", "suicide blond", "revenge"];
 var pics = ["devo.jpg", "bananarama.jpg", "wham.jpg", "blondie.jpg", "abc.jpg", "animotion.jpg", 'berlin.jpg', "eurythmics.jpg", "inxs.jpg", "ministry.jpg"];
-
+var music = ["whip_it.m4a", "venus.m4a", "wake_me_up.m4a", "heart_of_glass.m4a", "look_of_love.m4a", "obsession.m4a", "metro.m4a", "here_comes_the_rain_again.m4a", "suicide_blond.m4a", "revenge.m4a"];
 
 // Var Declarations  ############
 var wins = 0;
@@ -86,13 +86,14 @@ function updateDisplay(resultText, updateType) {
     document.getElementById("result").innerHTML = resultText;
     document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
     document.getElementById("bandPic").innerHTML = "<img src = 'assets/images/" + pics[musicGroups.indexOf(randGroup)] + "'>";
+    var audio = new Audio("assets/audio/" + music[musicGroups.indexOf(randGroup)]);
     document.getElementById("restartButton").style.display = "block";
     if (updateType === "win") {
         document.getElementById("wins").innerHTML = wins;
-        var audio = new Audio("assets/audio/celebration.wav");
+        // var audio = new Audio("assets/audio/" + celebration.wav");
     } else {
         document.getElementById("losses").innerHTML = losses;
-        var audio = new Audio("assets/audio/boo.wav");
+        // var audio = new Audio("assets/audio/boo.wav");
     }
     audio.play();
 }
