@@ -69,24 +69,28 @@ function takeTurn(event) {
         document.getElementById("guessesLeft").innerHTML = guessesLeft;
         document.getElementById("lettersGuessed").innerHTML = guesses.join(" ").toUpperCase();
     }
+
     if (remainingLetters === 0 && guessesLeft > 0) {
         wins++;
-        document.getElementById("result").innerHTML = "YOU DID IT!!!";
-        document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
-        // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
-        // document.getElementById("result").appendChild = audio;
-        document.getElementById("restartButton").style.display = "block";
-        document.getElementById("wins").innerHTML = wins;
+        updateDisplay("YOU DID IT!!!", "win");
     }
 
     if (remainingLetters > 0 && guessesLeft === 0) {
         losses++;
-        document.getElementById("result").innerHTML = "TOUGH LUCK...BETTER LUCK NEXT TIME";
-        document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
-        // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
-        // document.getElementById("result").appendChild = audio;
-       document.getElementById("restartButton").style.display = "block";
-          document.getElementById("losses").innerHTML = losses;
+        updateDisplay("TOUGH LUCK...BETTER LUCK NEXT TIME", "loss");
+    }
+}
+
+function updateDisplay(resultText, updateType) {
+    document.getElementById("result").innerHTML = resultText;
+    document.getElementById("reveal").innerHTML = artistSong.toUpperCase();
+    // document.getElementById("bandPic").innerHTML = pics[musicGroups.indexOf(randGroup)];
+    // document.getElementById("result").appendChild = audio;
+    document.getElementById("restartButton").style.display = "block";
+    if (updateType === "win") {
+        document.getElementById("wins").innerHTML = wins;
+    } else {
+        document.getElementById("losses").innerHTML = losses;
     }
 }
 
